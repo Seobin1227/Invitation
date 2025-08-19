@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>돌잔치 초대장 | 서빈</title> <!-- 🔧 아기 이름 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    :root{
+      --brand:#7c5cff;        /* 메인 포인트 컬러 */
+      --brand-2:#ff9fb3;      /* 서브 포인트 컬러 */
+      --ink:#1f2937;          /* 본문 글자색 */
+      --muted:#6b7280;        /* 보조 글자색 */
+      --bg:#f8fafc;           /* 페이지 배경 */
+      --card:#ffffff;         /* 카드 배경 */
+      --radius:24px;
+      --shadow:0 10px 30px rgba(17,24,39,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", Pretendard, "Helvetica Neue", Arial, "맑은 고딕", "Malgun Gothic", sans-serif;
+      color:var(--ink); background:
+        radial-gradient(1000px 600px at -10% -20%, rgba(124,92,255,.08), transparent 60%),
+        radial-gradient(1000px 600px at 110% 120%, rgba(255,159,179,.10), transparent 60%),
+        var(--bg);
+      display:flex; align-items:center; justify-content:center; padding:32px;
+    }
+    .wrap{width:100%; max-width:720px}
+    .card{
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:28px; position:relative; overflow:hidden;
+    }
+    .ribbon{
+      position:absolute; inset:auto -36px auto auto; top:24px;
+      transform:rotate(15deg); background:linear-gradient(90deg, var(--brand), var(--brand-2));
+      color:white; padding:6px 18px; font-size:12px; letter-spacing:.1em; border-radius:999px;
+      box-shadow:0 6px 16px rgba(124,92,255,.25);
+    }
+    .hero{
+      display:flex; gap:22px; align-items:center; margin-bottom:18px; flex-wrap:wrap;
+    }
+    .photo{
+      width:120px; height:120px; border-radius:50%;
+      background:#f3f4f6 center/cover no-repeat; /* 🔧 baby.jpg를 같은 폴더에 두면 자동 반영 */
+      background-image:url('baby.jpg'); border:6px solid #fff; box-shadow:0 8px 24px rgba(0,0,0,.08);
+      position:relative;
+    }
+    .photo::after{
+      content:""; position:absolute; inset:-3px; border-radius:50%;
+      background:conic-gradient(from 0deg, var(--brand), var(--brand-2), var(--brand));
+      z-index:-1; filter:blur(10px); opacity:.35;
+    }
+    .title{
+      flex:1 1 260px;
+    }
+    .title h1{
+      margin:0 0 6px; font-size:28px; line-height:1.25; letter-spacing:-.02em;
+    }
+    .title p{
+      margin:0; color:var(--muted); font-size:14px;
+    }
+    .details{
+      display:grid; grid-template-columns:1fr; gap:10px; margin:18px 0 10px;
+    }
+    .row{display:flex; align-items:center; gap:10px; color:#374151; font-size:15px}
+    .row svg{width:18px; height:18px; flex:0 0 18px; opacity:.9}
+    .msg{
+      margin:16px 0 22px; line-height:1.7; color:#374151; font-size:16px;
+      background:linear-gradient(180deg, #fafafa, #ffffff); border:1px solid #eef2f7; border-radius:16px;
+      padding:16px;
+    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:none; cursor:pointer; border-radius:999px;
+      padding:12px 16px; font-weight:600; font-size:14px; line-height:1;
+      display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+      transition:transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:var(--brand); color:#fff; box-shadow:0 10px 20px rgba(124,92,255,.25)}
+    .btn.ghost{background:#f3f4f6; color:#111827}
+    .btn svg{width:16px; height:16px}
+    .foot{
+      margin-top:20px; display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--muted); font-size:13px;
+      border-top:1px dashed #e5e7eb; padding-top:14px;
+    }
+    .parents{font-weight:600; color:#374151}
+    .chip{
+      background:#f3f4f6; color:#111827; border-radius:999px; padding:6px 10px; font-size:12px
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220; --card:#0f172a; --ink:#e5e7eb; --muted:#94a3b8}
+      body{background:
+        radial-gradient(1000px 600px at -10% -20%, rgba(124,92,255,.15), transparent 60%),
+        radial-gradient(1000px 600px at 110% 120%, rgba(255,159,179,.18), transparent 60%),
+        var(--bg);}
+      .msg{background:linear-gradient(180deg, #0f172a, #0b1325); border-color:#1e293b; color:#cbd5e1}
+      .row{color:#d1d5db}
+      .btn.ghost{background:#1f2937; color:#e5e7eb}
+      .foot{border-top-color:#1f2937}
+      .parents{color:#e2e8f0}
+    }
+    @media (max-width:480px){
+      .title h1{font-size:24px}
+      .photo{width:100px; height:100px}
+      .actions .btn{flex:1 1 auto; justify-content:center}
+    }
+    @media print{
+      body{background:white}
+      .ribbon,.actions .btn{display:none}
+      .card{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <section class="card" aria-labelledby="invite-title">
+      <div class="ribbon">FIRST BIRTHDAY</div>
+
+      <div class="hero">
+        <div class="photo" role="img" aria-label="아기 사진 (baby.jpg를 같은 폴더에 두면 표시됩니다)"></div>
+
+        <div class="title">
+          <h1 id="invite-title">서빈의 첫 번째 생일에 초대합니다</h1> <!-- 🔧 아기 이름 -->
+          <p>Seobin’s 1st Birthday Invitation</p> <!-- 🔧 영문 표기 -->
+        </div>
+      </div>
+
+      <div class="details" aria-describedby="schedule">
+        <div class="row">
+          <!-- calendar icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 2v3M16 2v3M3 9h18M4 7h16a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span id="schedule"><strong>2025년 12월 14일(일)</strong> 오후 <strong>1:00</strong></span> <!-- 🔧 날짜/시간 -->
+        </div>
+        <div class="row">
+          <!-- location icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.8" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span><strong>라온컨벤션 3층 연회장</strong> · 인천 미추홀구 예시로 123</span> <!-- 🔧 장소/주소 -->
+        </div>
+      </div>
+
+      <div class="msg">
+        바쁘신 와중에도 소중한 걸음 해주시면 큰 기쁨이 되겠습니다.<br />
+        따뜻한 축복 속에 첫 번째 생일을 맞이하려 합니다.
+      </div>
+
+      <div class="actions" aria-label="행동 버튼">
+        <a class="btn primary" href="https://maps.google.com/?q=%EC%9D%B8%EC%B2%9C%20%EB%AF%B8%EC%B6%94%ED%99%80%EA%B5%AC%20%EC%98%88%EC%8B%9C%EB%A1%9C%20123" target="_blank" rel="noopener">
+          <!-- map icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6 3 9v12l6-3 6 3 6-3V6l-6 3-6-3Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 6v12m6-9v12" stroke="currentColor" stroke-width="1.6"/></svg>
+          길찾기
+        </a>
+        <a class="btn ghost" href="tel:010-1234-5678">
+          <!-- phone icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 3h2.2a1 1 0 0 1 1 1l.3 2.6a1 1 0 0 1-.3.8L8.6 9.6a13.5 13.5 0 0 0 5.8 5.8l2.2-1.2a1 1 0 0 1 .8-.1L20 14.4a1 1 0 0 1 1 .9v2.2a2 2 0 0 1-2 2c-8.8 0-16-7.2-16-16a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          연락하기
+        </a>
+        <a class="btn ghost" href="mailto:parents@example.com?subject=%EB%8F%8C%EC%9E%94%EC%b9%98%20RSVP&body=%EC%84%9c%eb%b9%88%20%ec%b2%ab%20%ec%83%9d%ec%9d%bc%20RSVP%20%eb%b0%a9%eb%ac%b8%ec%9d%bc%ec%8b%9c%20%ec%9d%b4%eb%a6%84%20%ec%9d%b8%ec%9b%90%ec%9d%b4%20%ed%95%84%ec%9a%94%ed%95%b4%ec%9a%94.">
+          <!-- mail icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 6.5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6"/><path d="m4 8 8 5 8-5" stroke="currentColor" stroke-width="1.6" /></svg>
+          RSVP 메일
+        </a>
+      </div>
+
+      <div class="foot">
+        <div class="parents">부 · 모 : 김민수 · 이지은</div> <!-- 🔧 부모 성함 -->
+        <div class="chip">드레스코드: 포근한 겨울룩</div> <!-- 🔧 필요 없으면 삭제 -->
+      </div>
+    </section>
+  </main>
+</body>
+</html>
