@@ -62,29 +62,20 @@
     .invitation .invi-txt p { font-size:3vw; padding-bottom:5%; }
     .invitation .invi-txt .ps span:first-child::after { content:"·"; padding:1%; margin-left:1%; }
 
-    /* 동영상 카드 */
-    .movie-card { background:url('http://m.bomtv.co.kr/skin/dol012/images/mv_bg.png') right top no-repeat;
-      padding:14% 7% 14%; background-size:60%; }
-
     /* 갤러리 */
     div.gallery { background-color:#fff3f4; padding:10% 7% 14%; }
     div.gallery > div.slider { background-color:#dfdfdf; width:80%; height:100vw; margin:10% auto 0; position:relative; }
 
-    /* ⬇⬇⬇ 화살표 위치 보정 (수정 반영) ⬇⬇⬇ */
     div.gallery > div.slider > .side-bars{
-        position:absolute;
-        top:0; left:0;
+        position:absolute; top:0; left:0;
         width:100%; height:100%;
-        display:flex;
-        justify-content:space-between;   /* 좌우 끝 */
-        align-items:center;              /* 세로 중앙 */
-        pointer-events:none;             /* 부모 컨테이너는 클릭 막음 */
-        z-index:2;                       /* 슬라이드 위로 */
+        display:flex; justify-content:space-between; align-items:center;
+        pointer-events:none; z-index:2;
     }
     div.gallery > div.slider > .side-bars > div{
         width:56px; height:56px;
         display:flex; justify-content:center; align-items:center;
-        pointer-events:auto;             /* 버튼만 클릭 가능 */
+        pointer-events:auto;
     }
     div.gallery > div.slider > .side-bars > div > span{
         font-size:9vw; line-height:1;
@@ -95,7 +86,6 @@
     div.gallery > div.slider > .side-bars > div:active > span{
         transform:translateY(-1px) scale(0.98);
     }
-    /* ⬆⬆⬆ 화살표 위치 보정 끝 ⬆⬆⬆ */
 
     div.gallery > div.slider .slides > div {
         position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 0.5s;
@@ -107,19 +97,18 @@
     div.location { padding:14% 7% 14%; text-align:center; }
     div.location .map .map-txt p { font-size:3vw; }
     div.location .map .map-txt h4 { font-size:3.3vw; font-weight:bold; line-height:1%; }
-    div.location .navi > div { display:inline-block; width:20%; margin-left:5%; }
 
-    /* 스킨 */
-    div.skin { padding:12% 7%; background-color:#fff3f4; }
-    div.skin-list dl { float:left; width:48%; padding:2% 0 5%; position:relative; }
-    div.skin-list dl dt { position:absolute; top:0; left:0; width:10%; padding:9% 0; text-align:center; }
-    div.skin-list > dl > dd { margin-left:30%; margin-top:-10%; font-size:3vw; line-height:2.5vw; }
-    div.skin-list > dl.dad > dt { background-color:#98a498; }
-    div.skin-list > dl.mom > dt { background-color:#bf9a88; }
-    div.skin-list > dl.guest-book > dt { background-color:#e9bb7b; }
-    div.skin-list > dl.kakao > dt { background-color:#f8cab6; }
-    div.skin-list > dl.phone > dt { background-color:#bf9a88; }
-    div.skin-list > dl.alarm > dt { background-color:#98a498; }
+    /* PC 화면 보정 */
+    div.wrap{ max-width:900px; margin:0 auto; }
+    .title h3{ font-size: clamp(28px, 8vw, 48px); }
+    header .h-txt p{ font-size: clamp(16px, 2.4vw, 22px); line-height: 1.6; }
+    header .h-txt span{ font-size: clamp(14px, 2vw, 18px); line-height: 1.4; }
+    .cal .calendar div{ font-size: clamp(24px, 6vw, 36px); }
+    .cal .calendar .init tr th,
+    .cal .calendar .init tr td{ font-size: clamp(12px, 2vw, 16px); }
+    div.gallery > div.slider{ height: clamp(260px, 70vw, 520px); }
+    div.gallery > div.slider > .side-bars > div > span{ font-size: clamp(24px, 6vw, 40px); }
+    header .h-visual img{ width:100%; max-height:420px; object-fit:cover; }
   </style>
 </head>
 <body>
@@ -195,7 +184,7 @@
                 <h4>파티수 프라이빗 / 3층 가온룸</h4>
             </div>
 
-            <!-- 지도 삽입 -->
+           <!-- 지도 삽입 -->
             <div class="map-iframe" style="margin-top:20px;">
                 <iframe 
                     src="https://www.google.com/maps?q=경기도+김포시+모담공원로+155&output=embed" 
@@ -208,9 +197,10 @@
                 </iframe>
             </div>
           
-            <!-- 네이버 지도 링크 버튼 -->
+            <!-- 네이버 지도 버튼 -->
             <div class="navi" style="margin-top:20px;">
-                <a href="https://map.naver.com/v5/search/경기도%20김포시%20모담공원로%20155" target="_blank" style="display:inline-block; background:#03c75a; color:white; padding:12px 20px; border-radius:8px; font-weight:bold; text-decoration:none;">
+                <a href="https://map.naver.com/v5/search/경기도%20김포시%20모담공원로%20155" target="_blank" 
+                   style="display:inline-block; background:#03c75a; color:white; padding:12px 20px; border-radius:8px; font-weight:bold; text-decoration:none;">
                     📍 네이버 지도에서 보기
                 </a>
             </div>
@@ -238,7 +228,3 @@ $('.gallery > .slider > .side-bars > div').click(function(){
 </script>
 </body>
 </html>
-
-
-
-
