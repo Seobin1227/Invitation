@@ -37,7 +37,6 @@
     div.wrap{ width:100%; max-height:100000px; overflow-x:hidden; }
     header { background-color:#fff3f4; padding-bottom:10%; width:100%; position:relative; }
     header div.h-visual{ position:relative; }
-    header .main-img { position:absolute; top:0; left:0; }
     header .h-txt { text-align:center; }
     header .h-txt p { font-weight:bold; font-size:4vw; color:#7f4a48; line-height:6.3vw; }
     header .h-txt span { font-weight:100; font-size:3vw; display:block; margin-bottom:1%; line-height:5vw; }
@@ -70,12 +69,34 @@
     /* 갤러리 */
     div.gallery { background-color:#fff3f4; padding:10% 7% 14%; }
     div.gallery > div.slider { background-color:#dfdfdf; width:80%; height:100vw; margin:10% auto 0; position:relative; }
-    div.gallery > div.slider > .side-bars > div { position:absolute; top:0; left:0; width:100px; height:100%; cursor:pointer; }
-    div.gallery > div.slider .side-bars > div:nth-of-type(2) { right:0; left:auto; }
-    div.gallery > .slider > .side-bars > div > span {
-        position:absolute; top:50%; transform:translateY(-50%); font-size:10vw; transition:transform 0.2s;
-        margin:0 10px; color:#FFF;
+
+    /* ⬇⬇⬇ 화살표 위치 보정 (수정 반영) ⬇⬇⬇ */
+    div.gallery > div.slider > .side-bars{
+        position:absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+        display:flex;
+        justify-content:space-between;   /* 좌우 끝 */
+        align-items:center;              /* 세로 중앙 */
+        pointer-events:none;             /* 부모 컨테이너는 클릭 막음 */
+        z-index:2;                       /* 슬라이드 위로 */
     }
+    div.gallery > div.slider > .side-bars > div{
+        width:56px; height:56px;
+        display:flex; justify-content:center; align-items:center;
+        pointer-events:auto;             /* 버튼만 클릭 가능 */
+    }
+    div.gallery > div.slider > .side-bars > div > span{
+        font-size:9vw; line-height:1;
+        color:#FFF;
+        text-shadow:0 2px 8px rgba(0,0,0,.35);
+        transition:transform .15s ease;
+    }
+    div.gallery > div.slider > .side-bars > div:active > span{
+        transform:translateY(-1px) scale(0.98);
+    }
+    /* ⬆⬆⬆ 화살표 위치 보정 끝 ⬆⬆⬆ */
+
     div.gallery > div.slider .slides > div {
         position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 0.5s;
         background-repeat:no-repeat; background-position:center; background-size:cover;
@@ -116,23 +137,22 @@
         </div>
     </header>
 
-  <!-- 달력 -->
-  <div class="cal">
-      <div class="calendar">
-          <div class="month"><span>12</span><span>December 2025</span></div>
-          <table class="init">
-              <tbody>
-                  <tr><th>sun</th><th>mon</th><th>tue</th><th>wed</th><th>thu</th><th>fri</th><th>sat</th></tr>
-                  <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
-                  <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
-                  <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
-                  <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td><span class="choice">27</span></td></tr>
-                  <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
-              </tbody>
-          </table>
-      </div>
-  </div>
-
+    <!-- 달력 -->
+    <div class="cal">
+        <div class="calendar">
+            <div class="month"><span>12</span><span>December 2025</span></div>
+            <table class="init">
+                <tbody>
+                    <tr><th>sun</th><th>mon</th><th>tue</th><th>wed</th><th>thu</th><th>fri</th><th>sat</th></tr>
+                    <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                    <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+                    <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+                    <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td><span class="choice">27</span></td></tr>
+                    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- 초대문 -->
     <div class="invitation background">
@@ -204,9 +224,3 @@ $('.gallery > .slider > .side-bars > div').click(function(){
 </script>
 </body>
 </html>
-
-
-
-
-
-
