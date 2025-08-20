@@ -1,230 +1,365 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-  <title>서빈이 돌잔치 초대장❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+  <title>서빈이 돌잔치 초대장 ✨</title>
 
-  <!-- 외부 라이브러리 -->
+  <!-- 라이브러리 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous"
+  />
 
-  <!-- CSS -->
+  <!-- 폰트 -->
   <style>
-    @font-face { font-family: 'netmarbleB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff'); font-weight: normal; font-style: normal; }
-    @font-face { font-family: 'SangSangAnt'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/SangSangAnt.woff') format('woff'); font-weight: normal; font-style: normal; }
-    @font-face { font-family: 'Swagger'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/Swagger.woff') format('woff'); font-weight: normal; font-style: normal; }
-
-    html { font-family:'netmarbleB'; }
-    body, ul, li { margin:0; padding:0; list-style:none; }
-    a { text-decoration:none; color:inherit; }
-    .con { margin:0 auto; }
-    .row::after { display:block; content:""; clear:both; }
-    .img-box > img { width:100%; display:block; }
-
-    /* 커스텀 */
-    .title { color:#7f4a48; text-align:center; position:relative; font-family: 'SangSangAnt'; }
-    div.title::after {
-        content:""; background-image:url('http://m.bomtv.co.kr/skin/dol012/images/deco.png');
-        background-repeat:no-repeat; background-position:center; background-size:contain;
-        width:10%; height:50%; display:block; position:absolute; top:0%; left:50%;
-        transform:translateX(-50%) translateY(-50%);
+    @font-face {
+      font-family: 'netmarbleB';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleB.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
-    .title h3 { font-size:10vw; font-weight:100; }
-    .background { background-color:#fff3f4; width:100%; position:relative; }
+    @font-face {
+      font-family: 'SangSangAnt';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/SangSangAnt.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Swagger';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/Swagger.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
 
-    div.wrap{ width:100%; max-height:100000px; overflow-x:hidden; }
-    header { background-color:#fff3f4; padding-bottom:10%; width:100%; position:relative; }
-    header div.h-visual{ position:relative; }
-    header .h-txt { text-align:center; }
-    header .h-txt p { font-weight:bold; font-size:4vw; color:#7f4a48; line-height:6.3vw; }
-    header .h-txt span { font-weight:100; font-size:3vw; display:block; margin-bottom:1%; line-height:5vw; }
+  <!-- 스타일 -->
+  <style>
+    :root{
+      --bg-grad: radial-gradient(1200px 600px at 10% -10%, #ffe6ee 0%, transparent 60%),
+                 radial-gradient(900px 500px at 110% 0%, #e9f5ff 0%, transparent 55%),
+                 linear-gradient(180deg, #fff8fb, #fefcff);
+      --card: #ffffff;
+      --ink: #5a4b54;
+      --sub: #856b73;
+      --primary: #ff9fb8;  /* 버튼/포인트 */
+      --accent: #ffd8e4;   /* 배경 포인트 */
+      --accent-2: #e0f2ff; /* 보조 포인트 */
+      --ring: rgba(255,159,184,.35);
+      --shadow: 0 6px 22px rgba(0,0,0,.07);
+      --radius: 22px;
+    }
+
+    html { font-family: 'netmarbleB', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif; color: var(--ink); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-grad); }
+
+    /* 레이아웃 */
+    .wrap{ width:100%; max-width: 920px; margin: 0 auto; padding: clamp(14px, 4vw, 28px); }
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.7);
+    }
+    .section{ margin-top: clamp(16px, 4vw, 28px); }
+
+    /* 공통 타이틀 */
+    .title{
+      text-align:center; position:relative; padding: 18px 16px 8px; color:#7f4a48; font-family:'SangSangAnt';
+    }
+    .title h3{ margin:0; font-size: clamp(28px, 7vw, 44px); font-weight: 400; letter-spacing: .5px; }
+    .title::after{
+      content:"";
+      position:absolute; left:50%; top:0;
+      transform: translate(-50%,-60%);
+      width: 120px; height: 60px;
+      background: url('http://m.bomtv.co.kr/skin/dol012/images/deco.png') center/contain no-repeat;
+      opacity:.9;
+    }
+
+    /* 상단 헤더 */
+    header.header{
+      display: grid;
+      gap: clamp(12px, 3vw, 18px);
+      padding: clamp(16px, 4vw, 26px);
+      align-items: center;
+      background: linear-gradient(180deg, #fff, #fff8fb);
+    }
+    .hero{
+      display:flex; flex-direction: column; align-items: center; justify-content:center; gap: 12px;
+    }
+    .hero-pic{
+      width: clamp(180px, 55vw, 280px); aspect-ratio: 1/1; border-radius: 28px;
+      overflow: hidden; position: relative; box-shadow: var(--shadow); border: 6px solid #fff;
+      background: #f6f6f6;
+    }
+    .hero-pic img{ width:100%; height:100%; object-fit: cover; display:block; }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background: #fff; border: 1px solid var(--ring); color: var(--sub);
+      padding: 8px 14px; border-radius: 999px; box-shadow: var(--shadow);
+      font-size: clamp(12px, 2.6vw, 14px);
+    }
+    .badge i{ color:#ff84a5; }
+
+    .h-txt{
+      text-align: center; padding: 4px 8px 0;
+    }
+    .h-txt p{
+      margin:0;
+      font-size: clamp(16px, 2.8vw, 20px);
+      line-height: 1.7;
+      color: var(--ink);
+    }
+    .h-txt span{
+      display:block; font-family:'SangSangAnt';
+      font-size: clamp(18px, 3.6vw, 26px); color:#7f4a48; margin-bottom: 6px;
+    }
 
     /* 달력 */
-    .cal { width:100%; }
-    .cal .calendar { padding:14% 4% 13%; text-align:center; }
-    .cal .calendar div { font-size:6vw; margin:0 auto; }
-    .cal > .calendar > .month > span:first-child { color:#ffa9b5; }
-    .cal > .calendar > .month > span { color:#c8c8c8; font-family: 'Swagger'; }
-    .cal .calendar .init { color:#666; margin-top:10%; border-collapse:collapse; width:100%; }
-    .cal .calendar .init tr th { width:2.5em; height:2.5em; font-weight:bold; font-size:2.5vw; }
-    .cal .calendar .init tr td { position:relative; font-size:2.5vw; height:3.5em; }
-    .cal .calendar .init .choice { color:white; font-weight:800; }
-    .cal .calendar .init .choice::after {
-        content:""; display:block; width:2.3em; height:2.3em; position:absolute; top:50%; left:50%;
-        margin-top:-1.15em; margin-left:-1.15em; z-index:-1; border-radius:50%; background-color:#ffa9b5;
+    .cal .calendar{
+      padding: clamp(14px, 4vw, 22px);
+      display: grid; gap: 12px;
     }
+    .month{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      font-family:'Swagger'; color:#a56b7f;
+    }
+    .month span:first-child{
+      background: #fff; color:#ff91b0; border:1px solid var(--ring);
+      width: 52px; height: 52px; display:grid; place-content:center;
+      border-radius: 13px; box-shadow: var(--shadow); font-size: 22px;
+    }
+    .month span:last-child{ font-size: 24px; color:#c28a9c; letter-spacing:.5px; }
+
+    table.init{
+      width:100%; border-collapse: collapse; border-spacing: 0;
+      background: #fff; border-radius: 16px; overflow:hidden; box-shadow: var(--shadow);
+    }
+    .init th, .init td{
+      text-align:center; padding: clamp(8px, 2.3vw, 14px); font-size: clamp(12px, 2.2vw, 15px);
+      position:relative;
+    }
+    .init th{ background: #fff6f9; color:#9a6d7b; font-weight: 700; }
+    .init td span{
+      display:inline-grid; place-items:center; width: 34px; height: 34px; border-radius: 10px; color:#6a5b61;
+    }
+    .init td span:hover{ background:#fff1f5; }
+    .init .choice{
+      position: relative; color:#fff; font-weight:800;
+    }
+    .init .choice::after{
+      content:"";
+      position:absolute; inset:0; margin:auto;
+      width: 36px; height: 36px; border-radius: 10px; background: #ff9fb8;
+      z-index:-1; box-shadow: 0 6px 18px rgba(255,159,184,.4);
+    }
+    /* Saturday / Sunday 색상 */
+    .init tr td:nth-child(1) span{ color:#ff748a; }
+    .init tr td:nth-child(7) span{ color:#4da6ff; }
 
     /* 초대문 */
-    .invitation { margin:0 auto; padding:14% 0%; }
-    .invitation .invi-txt { text-align:center; font-size:2.5vw; padding-bottom:5%; line-height:calc(100% + 3vw); }
-    .invitation .invi-txt p { font-size:3vw; padding-bottom:5%; }
-    .invitation .invi-txt .ps span:first-child::after { content:"·"; padding:1%; margin-left:1%; }
+    .invitation{
+      padding: clamp(16px, 4vw, 26px) clamp(16px, 4vw, 28px);
+      background: linear-gradient(180deg, #fff, #fff2f7);
+    }
+    .invi-txt{
+      text-align:center; background:#fff; border-radius: 18px; box-shadow: var(--shadow);
+      padding: clamp(14px, 4vw, 22px) clamp(16px, 4vw, 26px);
+      border: 1px solid rgba(255,255,255,.8);
+    }
+    .invi-txt p{
+      font-size: clamp(15px, 2.8vw, 18px); line-height: 1.9; color:#6b5d63; margin: 0 0 10px;
+    }
+    .invi-txt .ps{
+      display:flex; justify-content:center; gap: 14px; color:#8a6d75; font-size: clamp(14px, 2.6vw, 16px);
+    }
+    .invi-txt .ps span:first-child::after{ content:"·"; margin: 0 8px; color:#d5a3af; }
 
     /* 갤러리 */
-    div.gallery { background-color:#fff3f4; padding:10% 7% 14%; }
-    div.gallery > div.slider { background-color:#dfdfdf; width:80%; height:100vw; margin:10% auto 0; position:relative; }
-
-    div.gallery > div.slider > .side-bars{
-        position:absolute; top:0; left:0;
-        width:100%; height:100%;
-        display:flex; justify-content:space-between; align-items:center;
-        pointer-events:none; z-index:2;
+    .gallery { padding: clamp(14px, 4vw, 24px); }
+    .slider{
+      background: #fff; border-radius: 22px; box-shadow: var(--shadow);
+      width: 100%; height: clamp(260px, 70vw, 520px);
+      margin: 12px auto 0; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,.7);
     }
-    div.gallery > div.slider > .side-bars > div{
-        width:56px; height:56px;
-        display:flex; justify-content:center; align-items:center;
-        pointer-events:auto;
+    .slides > div{
+      position:absolute; inset:0; opacity:0; transition: opacity .45s ease;
+      background-position:center; background-repeat:no-repeat; background-size: cover;
     }
-    div.gallery > div.slider > .side-bars > div > span{
-        font-size:9vw; line-height:1;
-        color:#FFF;
-        text-shadow:0 2px 8px rgba(0,0,0,.35);
-        transition:transform .15s ease;
+    .slides > .active{ opacity:1; }
+    /* 화살표 */
+    .side-bars{
+      position:absolute; inset:0; display:flex; justify-content:space-between; align-items:center;
+      padding: 0 8px; z-index:2; pointer-events:none;
     }
-    div.gallery > div.slider > .side-bars > div:active > span{
-        transform:translateY(-1px) scale(0.98);
+    .side-bars > div{
+      width: 54px; height: 54px; border-radius: 50%;
+      backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.15);
+      display:grid; place-items:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+      pointer-events:auto; user-select:none;
+      transition: transform .12s ease, background .2s ease;
     }
-
-    div.gallery > div.slider .slides > div {
-        position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 0.5s;
-        background-repeat:no-repeat; background-position:center; background-size:cover;
-    }
-    div.gallery > div.slider .slides > .active { opacity:1; }
+    .side-bars > div:hover{ background: rgba(0,0,0,.22); transform: translateY(-1px); }
+    .side-bars i{ color:#fff; font-size: clamp(22px, 6vw, 36px); line-height:1; }
 
     /* 위치 */
-    div.location { padding:14% 7% 14%; text-align:center; }
-    div.location .map .map-txt p { font-size:3vw; }
-    div.location .map .map-txt h4 { font-size:3.3vw; font-weight:bold; line-height:1%; }
+    .location{ padding: clamp(14px, 4vw, 24px); }
+    .map-card{
+      background:#fff; border-radius: 18px; box-shadow: var(--shadow);
+      padding: clamp(14px, 4vw, 22px) clamp(16px, 4vw, 26px);
+      display:grid; gap: 12px; border: 1px solid rgba(255,255,255,.7);
+    }
+    .map-txt p{ margin:0; color:#6c6070; font-size: clamp(14px, 2.7vw, 16px); }
+    .map-txt h4{ margin:2px 0 0; color:#5a4b54; font-size: clamp(16px, 3vw, 18px); }
+    .navi a{
+      display:inline-flex; align-items:center; gap:10px;
+      background:#03c75a; color:#fff; padding:12px 16px; border-radius:14px; text-decoration:none;
+      font-weight:700; box-shadow: var(--shadow);
+    }
+    .navi a i{ color:#fff; }
 
-    /* PC 화면 보정 */
-    div.wrap{ max-width:900px; margin:0 auto; }
+    /* PC 보기 보정 (가변 폰트/높이) */
     .title h3{ font-size: clamp(28px, 8vw, 48px); }
-    header .h-txt p{ font-size: clamp(16px, 2.4vw, 22px); line-height: 1.6; }
-    header .h-txt span{ font-size: clamp(14px, 2vw, 18px); line-height: 1.4; }
-    .cal .calendar div{ font-size: clamp(24px, 6vw, 36px); }
-    .cal .calendar .init tr th,
-    .cal .calendar .init tr td{ font-size: clamp(12px, 2vw, 16px); }
-    div.gallery > div.slider{ height: clamp(260px, 70vw, 520px); }
-    div.gallery > div.slider > .side-bars > div > span{ font-size: clamp(24px, 6vw, 40px); }
-    header .h-visual img{ width:100%; max-height:420px; object-fit:cover; }
+    .cal .calendar div{ font-size: clamp(22px, 6vw, 34px); }
+    .init th, .init td{ font-size: clamp(12px, 2vw, 16px); }
+    .slider{ height: clamp(260px, 70vw, 520px); }
+    .hero-pic{ max-height: 420px; }
+
+    /* 진입 애니메이션 */
+    .fade-in{ animation: fade-in .5s ease both; }
+    .rise{ animation: rise .6s ease both; }
+    @keyframes fade-in{ from{opacity:0} to{opacity:1} }
+    @keyframes rise{ from{ transform: translateY(8px); opacity:0 } to{ transform:none; opacity:1 } }
   </style>
 </head>
 <body>
-<div class="wrap">
-    <header>
-        <div class="h-visual img-box">
-            <img src="1.png" alt="seobin">
+  <div class="wrap">
+    <!-- 헤더 -->
+    <header class="header card fade-in">
+      <div class="hero">
+        <div class="badge"><i class="fas fa-birthday-cake"></i> 만 1년의 기적, 함께 해주세요</div>
+        <div class="hero-pic rise">
+          <img src="1.png" alt="seobin" />
         </div>
         <div class="h-txt">
-            <p>
-              <span>서빈이의 돌잔치에 초대합니다.</span>
-              2025.12.27 토요일 오후 5시<br>
-              김포 파티수 프라이빗 3층 가온룸
-            </p>
+          <p>
+            <span>서빈이의 돌잔치에 초대합니다</span>
+            2025.12.27 토요일 오후 5시<br />
+            김포 파티수 프라이빗 3층 가온룸
+          </p>
         </div>
+      </div>
     </header>
 
     <!-- 달력 -->
-    <div class="cal">
-        <div class="calendar">
-            <div class="month"><span>12</span><span>December 2025</span></div>
-            <table class="init">
-                <tbody>
-                    <tr><th>sun</th><th>mon</th><th>tue</th><th>wed</th><th>thu</th><th>fri</th><th>sat</th></tr>
-                    <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
-                    <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
-                    <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
-                    <tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td><span class="choice">27</span></td></tr>
-                    <tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <section class="cal section card fade-in">
+      <div class="title"><h3>calendar</h3></div>
+      <div class="calendar">
+        <div class="month"><span>12</span><span>December 2025</span></div>
+        <table class="init">
+          <tbody>
+            <tr>
+              <th>sun</th><th>mon</th><th>tue</th><th>wed</th><th>thu</th><th>fri</th><th>sat</th>
+            </tr>
+            <tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr>
+            <tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr>
+            <tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr>
+            <tr><td><span>21</span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span class="choice">27</span></td></tr>
+            <tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <!-- 초대문 -->
-    <div class="invitation background">
-        <div class="title"><h3>invitation</h3></div>
-        <div class="invi-txt">
-            <p>부모라는 이름으로 우리아가를 만난지<br>
-            벌써 1년 우리아가가 세상으로의 여행을<br>
-            시작하는 자리를 소중한 분들과<br>
-            함께 하고자 합니다.<br>
-            우리아가가 지혜롭고 따뜻한 아이로<br>
-            자랄 수 있도록 함께 자리하셔서<br>
-            사랑과 축복을 나눠주시기 바랍니다.</p>
-            <div class="ps"><span>아빠 윤종민</span><span>엄마 김가희</span></div>
-        </div>     
-    </div>
+    <section class="invitation section card fade-in">
+      <div class="title"><h3>invitation</h3></div>
+      <div class="invi-txt">
+        <p>
+          부모라는 이름으로 우리아가를 만난지<br />
+          벌써 1년 우리아가가 세상으로의 여행을<br />
+          시작하는 자리를 소중한 분들과<br />
+          함께 하고자 합니다.<br />
+          우리아가가 지혜롭고 따뜻한 아이로<br />
+          자랄 수 있도록 함께 자리하셔서<br />
+          사랑과 축복을 나눠주시기 바랍니다.
+        </p>
+        <div class="ps"><span>아빠 윤종민</span><span>엄마 김가희</span></div>
+      </div>
+    </section>
 
     <!-- 갤러리 -->
-    <div class="gallery">
-        <div class="title"><h3>gallery</h3></div>
-        <div class="slider">
-            <div class="slides">
-                <div class="active" style="background-image:url('2.jpg');"></div>
-                <div style="background-image:url('3.jpg');"></div>
-                <div style="background-image:url('4.jpg');"></div>
-                <div style="background-image:url('5.jpg');"></div>
-            </div>
-            <div class="side-bars">
-                <div><span><i class="fa fa-angle-left"></i></span></div>
-                <div><span><i class="fa fa-angle-right"></i></span></div>
-            </div>
+    <section class="gallery section card fade-in">
+      <div class="title"><h3>gallery</h3></div>
+      <div class="slider">
+        <div class="slides">
+          <div class="active" style="background-image:url('2.jpg');"></div>
+          <div style="background-image:url('3.jpg');"></div>
+          <div style="background-image:url('4.jpg');"></div>
+          <div style="background-image:url('5.jpg');"></div>
         </div>
-    </div>
+        <div class="side-bars">
+          <div><span><i class="fa fa-angle-left" aria-hidden="true"></i></span></div>
+          <div><span><i class="fa fa-angle-right" aria-hidden="true"></i></span></div>
+        </div>
+      </div>
+    </section>
 
     <!-- 위치 -->
-    <div class="location">
-        <div class="title"><h3>location</h3></div>
-        <div class="map">
-            <div class="map-txt">
-                <p>경기 김포시 모담공원로 155</p>
-                <h4>파티수 프라이빗 / 3층 가온룸</h4>
-            </div>
-
-           <!-- 지도 삽입 -->
-            <div class="map-iframe" style="margin-top:20px;">
-                <iframe 
-                    src="https://www.google.com/maps?q=경기도+김포시+모담공원로+155&output=embed" 
-                    width="100%" 
-                    height="300" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-          
-            <!-- 네이버 지도 버튼 -->
-            <div class="navi" style="margin-top:20px;">
-                <a href="https://map.naver.com/v5/search/경기도%20김포시%20모담공원로%20155" target="_blank" 
-                   style="display:inline-block; background:#03c75a; color:white; padding:12px 20px; border-radius:8px; font-weight:bold; text-decoration:none;">
-                    📍 네이버 지도에서 보기
-                </a>
-            </div>
+    <section class="location section card fade-in">
+      <div class="title"><h3>location</h3></div>
+      <div class="map-card">
+        <div class="map-txt">
+          <p>경기 김포시 모담공원로 155</p>
+          <h4>파티수 프라이빗 / 3층 가온룸</h4>
         </div>
-    </div>
-</div>
+		<div class="map-iframe" style="margin-top:20px;">
+          <iframe 
+            src="https://www.google.com/maps?q=경기도+김포시+모담공원로+155&output=embed" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+		
+        <div class="navi" style="margin-top:6px;">
+          <a href="https://map.naver.com/v5/search/경기도%20김포시%20모담공원로%20155" target="_blank" rel="noopener">
+            <i class="fas fa-map-marker-alt"></i> 네이버 지도에서 보기
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
 
-<!-- JS -->
-<script>
-$('.gallery > .slider > .side-bars > div').click(function(){
-    var $clickBtn = $(this);
-    var $slider = $clickBtn.closest('.slider');
-    var isLeft = $clickBtn.index() == 0;
+  <!-- 스크립트 -->
+  <script>
+    // 갤러리 좌우 클릭
+    $('.gallery .side-bars > div').click(function(){
+      var $btn = $(this);
+      var $slider = $btn.closest('.slider');
+      var left = $btn.index() === 0;
 
-    var $current = $slider.find('.slides > div.active');
-    var $post = isLeft ? $current.prev() : $current.next();
+      var $cur = $slider.find('.slides > div.active');
+      var $next = left ? $cur.prev() : $cur.next();
 
-    if ($post.length == 0){
-        $post = isLeft ? $slider.find('.slides > div:last-child')
-                       : $slider.find('.slides > div:first-child');
-    }
-    $current.removeClass('active');
-    $post.addClass('active');
-});
-</script>
+      if(!$next.length){
+        $next = left ? $slider.find('.slides > div:last-child')
+                     : $slider.find('.slides > div:first-child');
+      }
+      $cur.removeClass('active');
+      $next.addClass('active');
+    });
+  </script>
 </body>
 </html>
